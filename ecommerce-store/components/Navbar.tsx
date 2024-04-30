@@ -18,8 +18,8 @@ export default async function Navbar() {
         <div className="border-b">
             <Container>
                 <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center">
-                    <Link className="ml-4 flex lg:ml-0 gap-x-2" href="/">
-                        <Image src='/public/nav/fireworks-logo.png' alt='logo' width={40} height={40} />
+                    <Link className="ml-4 mr-20 flex lg:ml-0 gap-x-2" href="/">
+                        <Image src='/nav/fireworks-logo.png' alt='logo' width={40} height={40} />
                         <p className="mt-1 font-bold text-xl">Pirotehnika</p>
                     </Link>
                     <MainNav data={categories} />
