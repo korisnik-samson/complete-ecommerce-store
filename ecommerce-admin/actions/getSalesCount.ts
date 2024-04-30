@@ -6,13 +6,11 @@ import prismadb from "@/lib/prismadb";
  * @returns the sales count as a number
  */
 export default async function getSalesCount(storeId: string) {
-  // Use prismadb to count the paid orders that match the storeId
-  const salesCount = await prismadb.order.count({
-    where: {
-      storeId: storeId,
-      isPaid: true,
-    },
-  });
-
-  return salesCount;
+    // Use prismadb to count the paid orders that match the storeId
+    return await prismadb.order.count({
+        where: {
+            storeId: storeId,
+            isPaid: true,
+        },
+    });
 };

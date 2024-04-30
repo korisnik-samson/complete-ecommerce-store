@@ -1,6 +1,7 @@
 "use client";
 
 // Global Imports
+import React from "react";
 import { Plus } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 
@@ -11,45 +12,36 @@ import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import { DataTable } from "@/components/ui/data-table";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 interface CategoryClientProps {
-  data: CategoryColumn[]
+    data: CategoryColumn[]
 }
 
 // Client component that loads all our Categories
-const CategoryClient: React.FC<CategoryClientProps> = ({
-  data
-}) => {
-  // Create router object to perform client-side navigation
-  const router = useRouter();
+const CategoryClient: React.FC<CategoryClientProps> = ({ data }) => {
+    // Create router object to perform client-side navigation
+    const router: AppRouterInstance = useRouter();
 
-  // Hook returns an object containing current route's filled in dynamic parameters
-  const params = useParams();
+    // Hook returns an object containing current route's filled in dynamic parameters
+    const params = useParams();
 
-  return (
-    <>
-      <div className="flex items-center justify-between">
-        <Heading
-          title={`Categories (${data.length})`}
-          description="Manage categories for your store"
-        />
-        <Button
-          onClick={() => router.push(`/${params.storeId}/categories/new`)}
-        >
-          <Plus className="h-4 w-4 mr-2" />
-          Add New
-        </Button>
-      </div>
-      <Separator />
-      <DataTable columns={columns} data={data} searchKey={"name"}/>
-      <Heading title="API" description="API calls for Categories" />
-      <Separator />
-      <ApiList 
-        entityName="categories"
-        entityIdName="categoryId"
-      />
-    </>
-  )
+    return (
+        <React.Fragment>
+            <div className="flex items-center justify-between">
+                <Heading title={`Categories (${data.length})`} description="Manage categories for your store" />
+                <Button onClick={() => router.push(`/${ params.storeId }/categories/new`)}>
+                    <Plus className="h-4 w-4 mr-2" />
+                    Add New
+                </Button>
+            </div>
+            <Separator/>
+            <DataTable columns={columns} data={data} searchKey={"name"} />
+            <Heading title="API" description="API calls for Categories" />
+            <Separator />
+            <ApiList entityName="categories" entityIdName="categoryId" />
+        </React.Fragment>
+    )
 }
 
 export default CategoryClient;

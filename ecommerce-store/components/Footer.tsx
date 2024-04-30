@@ -4,32 +4,23 @@
 import React, { useEffect, useState } from "react";
 
 export default function Footer() {
+    const [isMounted, setIsMounted] = useState<boolean>(false);
 
-  // Declare isMounted state variable and initialize it to false
-  const [isMounted, setIsMounted] = useState(false);
+    useEffect (() => {
+        setIsMounted (true);
+    }, []);
 
-  // useEffect hook to set isMounted variable to true
-  // Delays the execution of client-side-only code until after hydration
-  useEffect(() => {
-    setIsMounted(true);
-  }, []); // Only run once after the initial render
+    if (!isMounted) return null;
 
-  // Prevent rendering of the component before the effect has run
-  // To protect from hydration errors or unwanted flashes of content
-  if (!isMounted) {
-    return null;
-  }
+    const date = new Date ();
 
-  // Create Date object with current date & time
-  const date = new Date();
-
-  return (
-    <footer className="bg-white border-t">
-      <div className="mx-auto py-10">
-        <p className="text-center text-xs text-black">
-          &copy; {date.getFullYear()} StoreName. All rights reserved.
-        </p>
-      </div>
-    </footer>
-  )
+    return (
+        <footer className="bg-white border-t">
+            <div className="mx-auto py-10">
+                <p className="text-center text-xs text-black">
+                    &copy; {date.getFullYear()} Fireworks Pirotehnika. All rights reserved.
+                </p>
+            </div>
+        </footer>
+    )
 }
