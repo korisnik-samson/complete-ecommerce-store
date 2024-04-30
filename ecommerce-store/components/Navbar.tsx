@@ -6,22 +6,24 @@ import MainNav from '@/components/MainNav';
 import NavbarActions from '@/components/NavbarActions';
 
 import getCategories from '@/actions/getCategories';
+import Image from "next/image";
 
 // Revalidate the page on every request, purge cache & fetch latest data
-export const revalidate = 0;
+export const revalidate: number = 0;
 
 export default async function Navbar() {
-    const categories = await getCategories ();
+    const categories = await getCategories();
 
     return (
         <div className="border-b">
             <Container>
                 <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center">
                     <Link className="ml-4 flex lg:ml-0 gap-x-2" href="/">
-                        <p className="font-bold text-xl">STORE</p>
+                        <Image src='/public/nav/fireworks-logo.png' alt='logo' width={40} height={40} />
+                        <p className="mt-1 font-bold text-xl">Pirotehnika</p>
                     </Link>
                     <MainNav data={categories} />
-                    <NavbarActions/>
+                    <NavbarActions />
                 </div>
             </Container>
         </div>
