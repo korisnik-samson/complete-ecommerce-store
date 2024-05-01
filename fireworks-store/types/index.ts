@@ -2,13 +2,13 @@ export interface Billboard {
     id: string;
     label: string;
     imageUrl: string;
-};
+}
 
 export interface Category {
     id: string;
     name: string;
     billboard: Billboard;
-};
+}
 
 export interface Product {
     id: string;
@@ -37,3 +37,13 @@ export interface Color {
     name: string;
     value: string;
 }
+
+export interface IConstructMetadata {
+    title?: string,
+    description?: string,
+    image?: string,
+    icons?: string,
+    noIndex?: boolean
+}
+
+

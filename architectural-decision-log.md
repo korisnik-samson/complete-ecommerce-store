@@ -15037,11 +15037,11 @@ This object `luna` is of type `Person`, and it has all the properties required b
 
 ##### Defining our data
 
-To create the actual types for `data`, navigate to root of the project and create `types.ts`.
+To create the actual types for `data`, navigate to root of the project and create `index.ts`.
 
 As of now, we have one route that contains our `Category`. We need to define the interface for a `Category`. To define the basic shape of our `Category`, we should give it a `{ id, name, billboard }`.
 
-`types.ts`
+`index.ts`
 ```ts
 export interface Category {
   id: string;
@@ -15066,7 +15066,7 @@ export interface Category {
 };
 ```
 
-Now we can navigate back to our `MainNav` and change our `data` to type `Category[]`. Make sure to import `Category` from `types.ts`
+Now we can navigate back to our `MainNav` and change our `data` to type `Category[]`. Make sure to import `Category` from `index.ts`
 
 `MainNav.tsx`
 ```tsx
@@ -15713,9 +15713,9 @@ Next we should add featured products to the home page.
 
 ### Product type
 
-We first need to add the types for it. Create a `Product` interface inside `types.ts`, which contains `{ id, category, name, price, isFeatured, size, color, images }`.
+We first need to add the types for it. Create a `Product` interface inside `index.ts`, which contains `{ id, category, name, price, isFeatured, size, color, images }`.
 
-`ecommerce-store\types.ts`
+`ecommerce-store\index.ts`
 ```ts
 export interface Product {
   id: string;
@@ -16046,7 +16046,7 @@ const ProductList: React.FC<ProductListProps> = ({
 }
 ```
 
-Let's create the `interface` of ProductCard, which will take `data` which is a type of `Product` we import from `types.ts`.
+Let's create the `interface` of ProductCard, which will take `data` which is a type of `Product` we import from `index.ts`.
 
 Then we assign the interface, and extract the data inside.
 
