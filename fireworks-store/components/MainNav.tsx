@@ -18,7 +18,7 @@ const MainNav: React.FC<MainNavProps> = ({ data }) => {
 
     // Map the data to usable route objects
     const routes = data.map ((route) => ({
-        href: `/category/${ route.id }`,
+        href: `/category/${ route.id}`,
         label: route.name,
         active: pathname === `/category/${ route.id }`
     }));
@@ -29,7 +29,7 @@ const MainNav: React.FC<MainNavProps> = ({ data }) => {
             {routes.map ((route) => (
                 <Link key={ route.href } href={ route.href }
                     className={cn("text-sm font-medium transition-medium transition-colors hover:text-black",
-                        route.active ? "text-black" : "text-neutral-500"
+                        route.active ? "text-black font-bold" : "text-neutral-500"
                     )}>
                     {route.label}
                 </Link>

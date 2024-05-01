@@ -41,7 +41,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async({ params, searchParams }
                 <div className='px-4 sm:px-6 lg:px-8 pb-24'>
                     <div className='lg:grid lg:grid-cols-5 lg:gap-x-8'>
                         {/* Mobile Filters */ }
-                        <MobileFilters sizes={ sizes } colors={ colors } />
+                        <MobileFilters sizes={sizes} colors={colors} />
 
                         {/* Desktop Filters */ }
                         <div className='hidden lg:block'>
@@ -50,7 +50,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async({ params, searchParams }
                         </div>
 
                         <div className='mt-6 lg:col-span-4 lg:mt-0'>
-                            {products.length == 0 && <NoResults/>}
+                            {products.length == 0 && <NoResults />}
                             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
                                 {products.map ((item) => (
                                     <ProductCard key={item.id} data={item} />
